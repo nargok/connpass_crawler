@@ -5,7 +5,8 @@ IT勉強会サイト[connpass](https://connpass.com/) のイベント情報を�
 ## 事前準備
 python環境の設定
 ```
-python3 -m venv connpass_crawler
+python3 -m venv venv
+source venv/bin/activate
 ```
 
 ライブラリのダウンロード
