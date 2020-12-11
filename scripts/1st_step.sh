@@ -2,7 +2,7 @@
 
 echo "イベントデータの取得を開始します"
 
-rm result/*
+rm ../result/*
 
 python get_event_data.py
 
