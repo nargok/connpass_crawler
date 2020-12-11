@@ -1,4 +1,5 @@
 venv
 result
 .idea
+.DS_Store
 connpass_result.csv
