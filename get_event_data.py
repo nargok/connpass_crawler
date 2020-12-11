@@ -4,6 +4,7 @@ import urllib.request
 import os
 import datetime
 import json
+import readline
 from dateutil.relativedelta import relativedelta
 
 os.makedirs('result', exist_ok=True)
