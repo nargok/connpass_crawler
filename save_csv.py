@@ -37,10 +37,7 @@ def save_csv(events):
 
     fp.close()
 
+
 if __name__ == '__main__':
-    print('hi')
     event_list = read_json_files(event_list)
     save_csv(event_list)
-
-
-

@@ -1,4 +1,5 @@
 import time
+import urllib
 import urllib.request
 import os
 import datetime
@@ -9,6 +10,7 @@ os.makedirs('result', exist_ok=True)
 query_base = "https://connpass.com/api/v1/event/?ym=%s&ym=%s&keyword=%s&count=%d&start=%d"
 INITIAL_DATA_POSITION = 1
 DATA_SIZE = 10
+parameter_base = "(当月: %s 次月: %s キーワード: %s サイズ: %d件 開始位置: %d)"
 
 
 def get_search_range():
@@ -30,12 +32,17 @@ def save_file(response):
 def get_events(this_month, next_month, keyword):
     data_position = INITIAL_DATA_POSITION
     for i in range(5):
+        keyword_quote = urllib.parse.quote(keyword)
         try:
             query = query_base % (
+                this_month, next_month, keyword_quote, DATA_SIZE, data_position
+            )
+            parameter = parameter_base % (
                 this_month, next_month, keyword, DATA_SIZE, data_position
             )
             print('以下の条件でイベント情報をダウンロードします')
-            print(query)
+            print(parameter)
+
             data = urllib.request.urlopen(query).read().decode("utf-8")
             json_data = json.loads(data)
         except:
